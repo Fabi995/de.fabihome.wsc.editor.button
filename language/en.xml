@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/typhoon/language.xsd" languagecode="de" languagename="Deutsch" countrycode="de">
+	<category name="wcf.message">
+		<item name="wcf.message.btn"><![CDATA[Button]]></item>
+		<item name="wcf.message.btn.link"><![CDATA[Button link]]></item>
+		<item name="wcf.message.btn.title"><![CDATA[Button title]]></item>
+		<item name="wcf.message.btn.icon"><![CDATA[Button icon]]></item>
+	</category>
+</language>

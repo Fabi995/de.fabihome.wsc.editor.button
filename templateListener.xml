@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/typhoon/templateListener.xsd">
+	<import>
+		<!-- user -->
+		<templatelistener name="pluginLang">
+			<environment>user</environment>
+			<templatename>headIncludeJavaScript</templatename>
+			<eventname>javascriptLanguageImport</eventname>
+			<templatecode><![CDATA[{if $__wcf->getBBCodeHandler()->isAvailableBBCode('btn')},'wcf.message.btn': '{@"wcf.message.btn"|language|encodeJS}','wcf.message.btn.title': '{@"wcf.message.btn.title"|language|encodeJS}','wcf.message.btn.link': '{@"wcf.message.btn.link"|language|encodeJS}','wcf.message.btn.icon': '{@"wcf.message.btn.icon"|language|encodeJS}'{/if}]]></templatecode>
+		</templatelistener>
+
+		<templatelistener name="pluginInit">
+			<environment>user</environment>
+			<templatename>wysiwyg</templatename>
+			<eventname>javascriptInit</eventname>
+			<templatecode><![CDATA[{if $__wcf->getBBCodeHandler()->isAvailableBBCode('btn')}$config.plugins.push('btn');{/if}]]></templatecode>
+		</templatelistener>
+
+		<templatelistener name="pluginInclude">
+			<environment>user</environment>
+			<templatename>wysiwyg</templatename>
+			<eventname>javascriptFiles</eventname>
+			<templatecode><![CDATA[{if $__wcf->getBBCodeHandler()->isAvailableBBCode('btn')},'{@$__wcf->getPath()}js/3rdParty/redactor/plugins/redactor.btn.js?v={@LAST_UPDATE_TIME}'{/if}]]></templatecode>
+		</templatelistener>
+		<!-- /user -->
+
+		<!-- admin -->
+		<templatelistener name="acpPluginLang">
+			<environment>admin</environment>
+			<templatename>headIncludeJavaScript</templatename>
+			<eventname>javascriptLanguageImport</eventname>
+			<templatecode><![CDATA[{if $__wcf->getBBCodeHandler()->isAvailableBBCode('btn')},'wcf.message.btn': '{@"wcf.message.btn"|language|encodeJS}', 'wcf.message.btn.title': '{@"wcf.message.btn.title"|language|encodeJS}','wcf.message.btn.link': '{@"wcf.message.btn.link"|language|encodeJS}','wcf.message.btn.icon': '{@"wcf.message.btn.icon"|language|encodeJS}'{/if}]]></templatecode>
+		</templatelistener>
+
+		<templatelistener name="acpPluginInit">
+			<environment>admin</environment>
+			<templatename>wysiwyg</templatename>
+			<eventname>javascriptInit</eventname>
+			<templatecode><![CDATA[{if $__wcf->getBBCodeHandler()->isAvailableBBCode('btn')}$config.plugins.push('btn');{/if}]]></templatecode>
+		</templatelistener>
+
+		<templatelistener name="acpPluginInclude">
+			<environment>admin</environment>
+			<templatename>wysiwyg</templatename>
+			<eventname>javascriptFiles</eventname>
+			<templatecode><![CDATA[{if $__wcf->getBBCodeHandler()->isAvailableBBCode('btn')},'{@$__wcf->getPath()}js/3rdParty/redactor/plugins/redactor.btn.js?v={@LAST_UPDATE_TIME}'{/if}]]></templatecode>
+		</templatelistener>
+		<!-- /admin -->
+	</import>
+</data>

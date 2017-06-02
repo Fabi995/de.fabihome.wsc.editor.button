@@ -27,14 +27,12 @@ class BtnBBCode extends AbstractBBCode{
                         }
                         WCF::getTPL()->assign(array(
                                 'content' => $content,
-                                'title' => (!empty($openingTag['attributes'][0]) ? $openingTag['attributes'][0] : ''),
-                                'icon'=> (!empty($openingTag['attributes'][1]) ? $openingTag['attributes'][1] : ''),
+                                'title' => (!empty($openingTag['attributes'][1]) ? $openingTag['attributes'][1] : ''),
+                                'icon'=> (!empty($openingTag['attributes'][2]) ? $openingTag['attributes'][2] : ''),
                                 'isExternalButtonLink' => $externalButtonLink,
                         ));
                         return WCF::getTPL()->fetch('btnBBCodeTag');
                 }
-				if ($parser->getOutputType() == 'text/plain') {
-                        return $content;
-                }
+
         }
 }

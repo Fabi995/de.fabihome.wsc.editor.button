@@ -6,45 +6,41 @@
 			<environment>user</environment>
 			<templatename>headIncludeJavaScript</templatename>
 			<eventname>javascriptLanguageImport</eventname>
-			<templatecode><![CDATA[{if $__wcf->getBBCodeHandler()->isAvailableBBCode('btn')},'wcf.message.btn': '{@"wcf.message.btn"|language|encodeJS}','wcf.message.btn.title': '{@"wcf.message.btn.title"|language|encodeJS}','wcf.message.btn.link': '{@"wcf.message.btn.link"|language|encodeJS}','wcf.message.btn.icon': '{@"wcf.message.btn.icon"|language|encodeJS}'{/if}]]></templatecode>
+			<templatecode><![CDATA[{if $__wcf->getBBCodeHandler()->isAvailableBBCode('btn')}
+			'wcf.message.btn': '{@"wcf.message.btn"|language|encodeJS}',
+			'wcf.message.btn.title': '{@"wcf.message.btn.title"|language|encodeJS}',
+			'wcf.message.btn.link': '{@"wcf.message.btn.link"|language|encodeJS}',
+			'wcf.message.btn.icon': '{@"wcf.message.btn.icon"|language|encodeJS}',
+			'wcf.message.btn.insert': '{@"wcf.message.btn.insert"|language|encodeJS}',
+			{/if}]]></templatecode>
 		</templatelistener>
 
 		<templatelistener name="pluginInit">
 			<environment>user</environment>
 			<templatename>wysiwyg</templatename>
-			<eventname>javascriptInit</eventname>
-			<templatecode><![CDATA[{if $__wcf->getBBCodeHandler()->isAvailableBBCode('btn')}$config.plugins.push('btn');{/if}]]></templatecode>
+			<eventname>redactorConfig</eventname>
+			<templatecode><![CDATA[{if $__wcf->getBBCodeHandler()->isAvailableBBCode('btn')}
+    // button options
+    buttonOptions['btn'] = {
+        icon: 'fa-globe',
+        title: '{"wcf.message.btn"|language|encodeJS}'
+    };
+
+    // add button
+    buttonMobile.push('btn');
+    buttons.push('btn');
+
+    // add plugin
+    config.plugins.push('btn');
+	{/if}]]></templatecode>
 		</templatelistener>
 
 		<templatelistener name="pluginInclude">
 			<environment>user</environment>
 			<templatename>wysiwyg</templatename>
-			<eventname>javascriptFiles</eventname>
-			<templatecode><![CDATA[{if $__wcf->getBBCodeHandler()->isAvailableBBCode('btn')},'{@$__wcf->getPath()}js/3rdParty/redactor/plugins/redactor.btn.js?v={@LAST_UPDATE_TIME}'{/if}]]></templatecode>
+			<eventname>redactorJavaScript</eventname>
+			<templatecode><![CDATA[,'{@$__wcf->getPath()}js/3rdParty/redactor2/plugins/redactor.btn.js?v={@LAST_UPDATE_TIME}']]></templatecode>
 		</templatelistener>
 		<!-- /user -->
-
-		<!-- admin -->
-		<templatelistener name="acpPluginLang">
-			<environment>admin</environment>
-			<templatename>headIncludeJavaScript</templatename>
-			<eventname>javascriptLanguageImport</eventname>
-			<templatecode><![CDATA[{if $__wcf->getBBCodeHandler()->isAvailableBBCode('btn')},'wcf.message.btn': '{@"wcf.message.btn"|language|encodeJS}', 'wcf.message.btn.title': '{@"wcf.message.btn.title"|language|encodeJS}','wcf.message.btn.link': '{@"wcf.message.btn.link"|language|encodeJS}','wcf.message.btn.icon': '{@"wcf.message.btn.icon"|language|encodeJS}'{/if}]]></templatecode>
-		</templatelistener>
-
-		<templatelistener name="acpPluginInit">
-			<environment>admin</environment>
-			<templatename>wysiwyg</templatename>
-			<eventname>javascriptInit</eventname>
-			<templatecode><![CDATA[{if $__wcf->getBBCodeHandler()->isAvailableBBCode('btn')}$config.plugins.push('btn');{/if}]]></templatecode>
-		</templatelistener>
-
-		<templatelistener name="acpPluginInclude">
-			<environment>admin</environment>
-			<templatename>wysiwyg</templatename>
-			<eventname>javascriptFiles</eventname>
-			<templatecode><![CDATA[{if $__wcf->getBBCodeHandler()->isAvailableBBCode('btn')},'{@$__wcf->getPath()}js/3rdParty/redactor/plugins/redactor.btn.js?v={@LAST_UPDATE_TIME}'{/if}]]></templatecode>
-		</templatelistener>
-		<!-- /admin -->
 	</import>
 </data>

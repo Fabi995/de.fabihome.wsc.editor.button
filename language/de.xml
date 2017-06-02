@@ -5,5 +5,6 @@
 		<item name="wcf.message.btn.link"><![CDATA[Button Link]]></item>
 		<item name="wcf.message.btn.title"><![CDATA[Button Titel]]></item>
 		<item name="wcf.message.btn.icon"><![CDATA[Button Icon]]></item>
+		<item name="wcf.message.btn.insert"><![CDATA[Einfügen]]></item>
 	</category>
 </language>

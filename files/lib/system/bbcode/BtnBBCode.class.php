@@ -15,22 +15,26 @@ use wcf\system\request\RouteHandler;
  * @category	Community Framework
  */
 class BtnBBCode extends AbstractBBCode{
-        
-        /**
-         * @see BBCode::getParsedTag()
-         */
+
+	/**
+	 * @see BBCode::getParsedTag()
+	 * @param array        $openingTag
+	 * @param string       $content
+	 * @param array        $closingTag
+	 * @param BBCodeParser $parser
+	 * @return string
+	 */
         public function getParsedTag(array $openingTag, $content, array $closingTag, BBCodeParser $parser) {
                 if ($parser->getOutputType() == 'text/html') {
-                        $externalButtonLink = ($content ? !ApplicationHandler::getInstance()->isInternalURL($content) : false);
+                        $externalButtonLink = ($openingTag['attributes'][0]) ? !ApplicationHandler::getInstance()->isInternalURL($openingTag['attributes'][0]) : false;
                         if (!$externalButtonLink) {
-                                $content = preg_replace('~^https?://~', RouteHandler::getProtocol(), $content);
+	                        $openingTag['attributes'][0] = preg_replace('~^https?://~', RouteHandler::getProtocol(), $openingTag['attributes'][0]);
                         }
-                        WCF::getTPL()->assign(array(
-                                'content' => $content,
+                        WCF::getTPL()->assign([
                                 'title' => (!empty($openingTag['attributes'][1]) ? $openingTag['attributes'][1] : ''),
                                 'icon'=> (!empty($openingTag['attributes'][2]) ? $openingTag['attributes'][2] : ''),
                                 'isExternalButtonLink' => $externalButtonLink,
-                        ));
+                        ]);
                         return WCF::getTPL()->fetch('btnBBCodeTag');
                 }
 

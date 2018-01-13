@@ -4,7 +4,7 @@
 		<packagename><![CDATA[Redactor - Button]]></packagename>
 		<packagedescription><![CDATA[Extends Redactor to make Buttons with Link]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Erweitert den Redactor, Buttons mit Link hinzu zu fügen.]]></packagedescription>
-		<version>2.0.0</version>
+		<version>2.0.2</version>
 		<date>2017-06-02</date>
 		<license><![CDATA[All rights reserved <https://fabihome.de/license.html>]]></license>
 	</packageinformation>
@@ -36,6 +36,27 @@
 		<instruction type="language" />
 
 	</instructions>
-	
+
+	<instructions type="update" fromversion="2.0.0">
+
+		<!-- files -->
+		<instruction type="file" />
+		<instruction type="template" />
+
+		<!-- xml -->
+		<instruction type="templateListener" />
+
+	</instructions>
+
+	<instructions type="update" fromversion="2.0.1">
+
+		<!-- files -->
+		<instruction type="file" />
+		<instruction type="template" />
+
+		<!-- xml -->
+		<instruction type="templateListener" />
+
+	</instructions>
 
 </package>

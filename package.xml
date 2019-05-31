@@ -4,9 +4,9 @@
 		<packagename><![CDATA[Redactor - Button]]></packagename>
 		<packagedescription><![CDATA[Extends Redactor to make Buttons with Link]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Erweitert den Redactor, Buttons mit Link hinzu zu fügen.]]></packagedescription>
-		<version>2.0.2</version>
-		<date>2017-06-02</date>
-		<license><![CDATA[All rights reserved <https://fabihome.de/license.html>]]></license>
+		<version>2.1.0</version>
+		<date>2018-01-13</date>
+		<license><![CDATA[Fabihome Free <https://fabihome.de/license.html>]]></license>
 	</packageinformation>
 	
 	<authorinformation>
@@ -15,11 +15,11 @@
 	</authorinformation>
 	
 	<requiredpackages>
-		<requiredpackage minversion="3.0.0">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="3.1.0 Beta 5">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
 
 	<excludedpackages>
-		<excludedpackage version="3.1.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+		<excludedpackage version="3.2.0 Alpha 1">com.woltlab.wcf</excludedpackage>
 	</excludedpackages>
 
 	<instructions type="install">
@@ -37,25 +37,18 @@
 
 	</instructions>
 
-	<instructions type="update" fromversion="2.0.0">
+	<instructions type="update" fromversion="2.0.2">
 
 		<!-- files -->
 		<instruction type="file" />
 		<instruction type="template" />
 
 		<!-- xml -->
+		<instruction type="bbcode" />
 		<instruction type="templateListener" />
 
-	</instructions>
-
-	<instructions type="update" fromversion="2.0.1">
-
-		<!-- files -->
-		<instruction type="file" />
-		<instruction type="template" />
-
-		<!-- xml -->
-		<instruction type="templateListener" />
+		<!-- language -->
+		<instruction type="language" />
 
 	</instructions>
 
